@@ -2,7 +2,6 @@ package fa.training.management;
 
 import fa.training.entities.Employee;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
@@ -21,7 +20,7 @@ public class EmployeesManagement  {
 
     //Show all employees
     public void showAllEmployees() {
-        if (listOfEmployee.size() == 0) {
+        if (listOfEmployee.isEmpty()) {
             System.out.println("No employees found.");
         } else {
             for (Employee employee : listOfEmployee) {
@@ -35,12 +34,12 @@ public class EmployeesManagement  {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter employee name to search: ");
         String name = scanner.nextLine();
-        if (listOfEmployee.size() == 0) {
+        if (listOfEmployee.isEmpty()) {
             System.out.println("No employees found.");
         } else {
             for (Employee employee : listOfEmployee) {
                 if (employee.getName().equals(name)) {
-                    System.out.println(employee.toString());
+                    System.out.println(employee);
                 }
             }
         }
@@ -48,7 +47,7 @@ public class EmployeesManagement  {
 
     //Sort employees by salary ascending
     public List<Employee> sortBySalaryAscending() {
-        listOfEmployee.sort(Comparator.comparing(Employee::getSalary).reversed());
+        listOfEmployee.sort(Comparator.comparing(Employee::getSalary));
         return listOfEmployee;
     }
 }

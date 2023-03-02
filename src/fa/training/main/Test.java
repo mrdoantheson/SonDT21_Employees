@@ -14,10 +14,9 @@ public class Test {
     static List<Employee> listOfEmployee = new ArrayList<>();
 
     public static void main(String[] args) {
+        read();
         Scanner scanner = new Scanner(System.in);
         EmployeesManagement employeesManagement = new EmployeesManagement(listOfEmployee);
-
-
         boolean running = true;
         while (running) {
             System.out.println("Menu:");

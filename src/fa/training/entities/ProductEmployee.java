@@ -12,9 +12,7 @@ public class ProductEmployee extends Employee {
 
     @Override
     public double calculateTax() {
-        double tax = 0;
-        setTax(tax);
-        return getTax();
+        return 0;
     }
 
     /**
@@ -27,7 +25,7 @@ public class ProductEmployee extends Employee {
                 ", name='" + getName() + '\'' +
                 ", age=" + getAge() +
                 ", salary=" + getSalary() +
-                ", calculateTax=" + +
+                ", calculateTax=" + getTax() +
                 '}';
     }
 }

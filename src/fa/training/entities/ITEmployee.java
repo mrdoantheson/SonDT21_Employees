@@ -11,13 +11,13 @@ public class ITEmployee extends Employee {
 
     @Override
     public double calculateTax() {
+        double tax = 0;
         if (getSalary() > 11000000) {
-            double tax = getSalary() * 0.1;
-            setTax(tax);
+            tax = getSalary() * 0.1;
         } else if (getSalary() > 15000000) {
-            double tax = 400000;
-            setTax(tax);
+            tax = 400000;
         }
+        setTax(tax);
         return getTax();
     }
 
@@ -26,12 +26,14 @@ public class ITEmployee extends Employee {
      */
     @Override
     public String toString() {
+        String salary = String.format("%.2f", getSalary());
+        String calculateTax = String.format("%.2f", calculateTax());
         return "Employee{" +
                 "code='" + getCode() + '\'' +
                 ", name='" + getName() + '\'' +
                 ", age=" + getAge() +
-                ", salary=" + getSalary() +
-                ", Tax=" + getTax() +
+                ", salary=" + salary +
+                ", Tax=" + calculateTax +
                 '}';
     }
 }
