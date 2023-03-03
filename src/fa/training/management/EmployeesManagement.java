@@ -38,7 +38,7 @@ public class EmployeesManagement  {
             System.out.println("No employees found.");
         } else {
             for (Employee employee : listOfEmployee) {
-                if (employee.getName().equals(name)) {
+                if (employee.getName().contains(name)) {
                     System.out.println(employee);
                 }
             }
