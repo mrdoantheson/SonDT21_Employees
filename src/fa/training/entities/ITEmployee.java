@@ -3,7 +3,6 @@ package fa.training.entities;
 import java.util.Scanner;
 
 public class ITEmployee extends Employee {
-
     @Override
     public void inputData(Scanner scanner) {
         super.inputData(scanner);

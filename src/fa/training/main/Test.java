@@ -1,11 +1,18 @@
 package fa.training.main;
 
+import fa.training.dao.DBUtils;
+import fa.training.dao.ItEmployeeDAO;
+import fa.training.dao.ItEmployeeDAOImpl;
 import fa.training.entities.Employee;
 import fa.training.entities.ITEmployee;
 import fa.training.entities.ProductEmployee;
 import fa.training.management.EmployeesManagement;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,6 +21,7 @@ public class Test {
     static List<Employee> listOfEmployee = new ArrayList<>();
 
     public static void main(String[] args) {
+
         read();
         Scanner scanner = new Scanner(System.in);
         EmployeesManagement employeesManagement = new EmployeesManagement(listOfEmployee);
@@ -33,6 +41,11 @@ public class Test {
                     ITEmployee itEmployee = new ITEmployee();
                     itEmployee.inputData(scanner);
                     employeesManagement.addEmployee(itEmployee);
+
+                    ItEmployeeDAO itEmployeeDAO = new ItEmployeeDAOImpl();
+                    boolean result = itEmployeeDAO.insert(itEmployee);
+                    System.out.println("Insert success " + result);
+
                 }
                 case 2 -> {
                     ProductEmployee productEmployee = new ProductEmployee();
